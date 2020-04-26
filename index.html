@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>白给网</title>
+	<meta name="description" content="每日推荐拼多多优惠商品，还有大量内部优惠券，丰富优惠，简直白给。">
+	<meta name="keywords" content="拼多多,优惠券,打折,白给,优惠,平价,淘宝,天猫,京东,阿里,微店,折扣,爆款,拼团,购物,返利">
+	<script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
+	<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="header">
+		<a href="/"><img src="logo.png" alt="logo" class="logo" /></a>
+	</div>
+
+	<div id="container"></div>
+</body>
+
+<script type="text/template" id="item">
+	<a class="item" href="/<%= link %>">
+		<img src="<%= pic %>"
+			alt="<%= title %>" class="pic" />
+		<div class="title"><%= title %></div>
+		<div class="price">
+			<span class="p1"><%= ticket > 0 ? '券后' : '白给价' %></span>
+			<span class="p2"><%= (price - ticket).toFixed(2) %></span>
+			<% if (ticket > 0) { %>
+			<span class="p3"><%= price.toFixed(2) %></span>
+			<% } %>
+		</div>
+	</a>
+</script>
+
+<script type="text/template" id="notfound">
+	<div class="not-found">
+		<span>没有这个东西哦</span>
+	</div>
+</script>
+
+<script type="text/template" id="detail">
+	<div class="detail">
+		<img class="pic" 
+		src="<%= pic %>" alt="<%= title %>" />
+		<div class="infos">
+			<div class="title"><%= title %></div>
+			<div class="tags">
+				<% if (ticket > 0) { %>
+				<span class="t1">优惠券</span>
+				<% } %>
+			</div>
+			<div class="price">
+				<span class="p1"><%= (price-ticket).toFixed(2) %></span>
+				<% if (ticket > 0) { %>
+				<span class="p2"><%= price.toFixed(2) %></span>
+				<% } %>
+			</div>
+			<% if (desc) { %>
+			<div class="desc"><%= desc %></div>
+			<% } %>
+			<a href="https://p.pinduoduo.com/<%= link %>">
+				<div class="buy-btn"><%= ticket > 0 ? '领券购买' : '立即购买' %></div>
+			</a>
+		</div>
+	</div>
+</script>
+
+<script type="text/template" id="recommends">
+	<div class="recommends">
+		<div class="title">更多推荐</div>
+		<div class="rec-list">
+			<% list.map(function(item){ %>
+				<a class="rec-it">
+					<img src="<%= item.pic %>" 
+						alt="<%= item.title %>" class="pic" />
+					<div class="title"><%= item.title %></div>
+					<div class="price">
+						<span class="p1"><%= item.ticket > 0 ? '券后' : '白给价' %></span>
+						<span class="p2"><%= (item.price - item.ticket).toFixed(2) %></span>
+						<% if (item.ticket > 0) { %>
+						<span class="p3"><%= item.price.toFixed(2) %></span>
+						<% } %>
+					</div>
+				</a>
+			<% }) %>
+		</div>
+	</div>
+</script>
+
+</html>
