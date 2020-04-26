@@ -74,7 +74,7 @@
 		<div class="title">更多推荐</div>
 		<div class="rec-list">
 			<% list.map(function(item){ %>
-				<a class="rec-it">
+				<a class="rec-it" href="/<%= link %>">
 					<img src="<%= item.pic %>" 
 						alt="<%= item.title %>" class="pic" />
 					<div class="title"><%= item.title %></div>
