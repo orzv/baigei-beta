@@ -10,6 +10,9 @@ var parseUrl = require('url').parse
 
 var appid = process.env.client_id
 var appkey = process.env.secret
+var pid = process.env.pddpid
+
+console.log('current enviroment: ', appid, pid)
 
 // 发起拼多多API请求
 function pdd(type, params, callback) {
@@ -138,4 +141,4 @@ function each(list, callback, done) {
 	})
 }
 
-transformList('10234707_137893612', console.log)
+transformList(pid, console.log)

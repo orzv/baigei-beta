@@ -148,7 +148,8 @@ a {
     margin-left: -3.2rem;
 }
 
-.detail .buy-btn {
+.detail .buy-btn,
+.detail .buy-btn-2 {
     color: #ffffff;
     font-size: 1.1rem;
     border-radius: 3px;
@@ -157,6 +158,11 @@ a {
     line-height: 42px;
     text-align: center;
     margin-top: 6px;
+}
+
+.detail .buy-btn-2 {
+    background: #e96c51;
+    font-size: 1rem;
 }
 
 .detail .tags .t1 {
@@ -197,8 +203,9 @@ a {
     display: block;
 }
 
-.wx {
-    display: block;
-    margin-top: 12px;
-    width: 100vw;
+.not-found {
+    margin: 12px 0;
+    text-align: center;
+    color: #666666;
+    font-size: 1.2rem;
 }

@@ -9,6 +9,7 @@
 	<meta name="keywords" content="拼多多,优惠券,打折,白给,优惠,平价,淘宝,天猫,京东,阿里,微店,折扣,爆款,拼团,购物,返利">
 	<script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
 	<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+	<script src="http://tajs.qq.com/stats?sId=66548236"></script>
 	<script src="app.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -37,9 +38,7 @@
 </script>
 
 <script type="text/template" id="notfound">
-	<div class="not-found">
-		<span>没有这个东西哦</span>
-	</div>
+	<div class="not-found">没有这个东西哦</div>
 </script>
 
 <script type="text/template" id="detail">
@@ -62,9 +61,13 @@
 			<% if (desc) { %>
 			<div class="desc"><%= desc %></div>
 			<% } %>
+			<% if (/weibo/i.test(navigator.userAgent)) { %>
 			<a href="https://p.pinduoduo.com/<%= link %>">
 				<div class="buy-btn"><%= ticket > 0 ? '领券购买' : '立即购买' %></div>
 			</a>
+			<% } else { %>
+			<div class="buy-btn-2">点击右上角，选择浏览器打开</div>
+			<% } %>
 		</div>
 	</div>
 </script>
