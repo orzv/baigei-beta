@@ -61,7 +61,7 @@
 			<% if (desc) { %>
 			<div class="desc"><%= desc %></div>
 			<% } %>
-			<% if (!/weibo/i.test(navigator.userAgent)) { %>
+			<% if (!/weibo|tieba/i.test(navigator.userAgent)) { %>
 			<a href="https://p.pinduoduo.com/<%= link %>">
 				<div class="buy-btn"><%= ticket > 0 ? '领券购买' : '立即购买' %></div>
 			</a>
